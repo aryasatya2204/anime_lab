@@ -1,5 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:project_lab/screens/detail_screen.dart';
+import 'package:project_lab/screens/favorite_screen.dart';
+import 'package:project_lab/screens/home_screen.dart';
+import 'package:project_lab/screens/profile_screen.dart';
 import 'package:project_lab/screens/signin_screen.dart';
+import 'package:flutter/material.dart';
+
+import 'config/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,18 +14,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Anime',
+    return MaterialApp.router(
+      title: 'AnimeVerse',
       theme: ThemeData(
         fontFamily: 'Urbanist',
       ),
-      home: const SignInScreen(),
+      routerConfig: createRouter(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
-
