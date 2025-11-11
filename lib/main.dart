@@ -1,9 +1,6 @@
-import 'package:project_lab/screens/detail_screen.dart';
-import 'package:project_lab/screens/favorite_screen.dart';
-import 'package:project_lab/screens/home_screen.dart';
-import 'package:project_lab/screens/profile_screen.dart';
-import 'package:project_lab/screens/signin_screen.dart';
+import 'package:project_lab/providers/app_state_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'config/routes.dart';
 
@@ -16,13 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'AnimeVerse',
-      theme: ThemeData(
-        fontFamily: 'Urbanist',
+    return ChangeNotifierProvider(
+      create: (_) => AppStateProvider(),
+      child: MaterialApp.router(
+        title: 'AnimeVerse',
+        theme: ThemeData(
+          fontFamily: 'Urbanist',
+        ),
+        routerConfig: createRouter(),
+        debugShowCheckedModeBanner: false,
       ),
-      routerConfig: createRouter(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
